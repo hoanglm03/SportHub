@@ -105,5 +105,3 @@ brainstorms/geo-skill-matching.md   ← Ý tưởng + deep dive
 - **Project Management:** Jira / Trello
 
 ---
-
-> Tài liệu BA được tạo bằng [BA-Kit](https://github.com/anthropics/claude-code) pipeline: `/brainstorm` → `/urd` → `/brd` → `/prd` → `/srs` → `/userstory` → `/ac` → `/review` → `/gap`
