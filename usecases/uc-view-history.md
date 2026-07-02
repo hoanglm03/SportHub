@@ -34,6 +34,7 @@ N/A — flow tuyến tính, xem Mục d.
 | FR | Vai trò |
 |----|---------|
 | FR-sport-matching-012 | Lịch sử trận + thống kê win/loss + rating |
+| FR-sport-matching-021 | Nguồn dữ liệu win/loss từ report kết quả (dependency: data chỉ có khi Player report) |
 
 ## h. Open Questions
 

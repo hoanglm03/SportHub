@@ -34,3 +34,5 @@
 | 4 | Nút Xác nhận | button primary | • Disabled khi chưa fill đủ 6 số<br>• Tap: verify OTP, thành công chuyển profile-setup<br>• OTP sai: hiện toast "OTP không đúng" |
 | 5 | Link Gửi lại | text link | • Disabled trong countdown<br>• Enable khi hết hạn hoặc sau 60s<br>• Tap: gửi OTP mới, reset countdown |
 | 6 | Nút Quay lại | icon back | • Quay về register, giữ data đã nhập |
+| 7 | Loading state | state | • Nút Xác nhận hiện spinner khi đang verify OTP |
+| 8 | Context variant | behavior | • Registration: title "Xác thực Email", back → register<br>• Email change (từ settings): title "Xác nhận email mới", back → settings |

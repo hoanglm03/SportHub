@@ -35,4 +35,5 @@
 | 2 | Mật khẩu | password input | • Bắt buộc<br>• Toggle hiện/ẩn (icon mắt)<br>• Placeholder: "Nhập mật khẩu" |
 | 3 | Tên hiển thị | text input | • Bắt buộc<br>• Placeholder: "Tên hiển thị trên app" |
 | 4 | Nút Đăng ký | button primary | • Disabled khi chưa fill đủ 3 trường<br>• Tap: gửi POST /register, chuyển otp-verify<br>• Error email trùng: hiện toast lỗi |
-| 5 | Link Đăng nhập | text link | • Chuyển sang màn đăng nhập (nếu đã có account) |
+| 5 | Link Đăng nhập | text link | • Chuyển sang login screen |
+| 6 | Loading state | state | • Nút Đăng ký hiện spinner, form fields disabled khi đang gọi API |

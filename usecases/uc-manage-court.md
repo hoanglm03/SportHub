@@ -40,3 +40,4 @@ Screens cho Partner flow là P1, chưa thiết kế trong v1.0.
 ## h. Open Questions
 
 - [ ] OQ-1: Screens cụ thể cho Partner management flow (P1) — cần thiết kế khi dev v1.1.
+- [ ] OQ-2: FR-015 (Manual KYC qua Zalo) và FR-047 (Auto KYC trên app, uc-partner-onboard) — concurrent paths hay migration? FR-047 thay thế FR-015 khi P1 ready? Resolve trước khi implement.

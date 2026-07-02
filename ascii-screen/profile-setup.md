@@ -37,3 +37,4 @@
 | 2 | Trình độ per môn | radio group (3 options) | • Hiện cho mỗi môn đã chọn<br>• 3 bậc: **Mới chơi** / **Trung bình** / **Nâng cao**<br>• Bắt buộc chọn 1 bậc per môn<br>• Ref: BR-sport-matching-007 |
 | 3 | Counter môn đã chọn | static text | • Hiện "Đã chọn: X/5 môn"<br>• Warn khi vượt 5: "Chỉ 5 môn đầu hiển thị nổi bật" |
 | 4 | Nút Hoàn tất | button primary | • Disabled khi chưa chọn ≥1 môn + trình độ<br>• Tap: save profile, chuyển map-search |
+| 5 | Loading state | state | • Nút Hoàn tất hiện spinner khi save profile |

@@ -1,7 +1,7 @@
 ---
 type: srs-flows
 feature: sport-matching
-updated: 2026-06-04
+updated: 2026-06-23
 ---
 
 # Sport Matching — Sequence & Activity Diagrams
@@ -167,4 +167,96 @@ sequenceDiagram
     end
     BE-->>App: Đánh giá gửi thành công
     App-->>P: Xác nhận + quay về match-history
+```
+
+## Flow: Venue Booking (Đặt sân độc lập)
+
+> Related: uc-search-venue, uc-book-venue | FR-022→026
+
+```mermaid
+sequenceDiagram
+    participant P as Player
+    participant App as Mobile App
+    participant BE as Backend
+    participant Pay as Payment Gateway
+    participant Owner as Chủ sân
+
+    P->>App: Mở Tìm sân, chọn filter
+    App->>BE: GET /venues?sport=X&area=Y&date=Z&price=W
+    BE-->>App: Danh sách sân + slot trống real-time
+    App-->>P: Hiện danh sách sân (venue-search)
+    P->>App: Chọn sân, xem chi tiết
+    App->>BE: GET /venues/{id}/slots?date=Z
+    BE-->>App: Chi tiết sân + grid slot
+    App-->>P: Hiện venue-detail
+    P->>App: Chọn sân con + khung giờ
+    App->>BE: POST /slots/{id}/lock (tạm giữ 10p)
+    alt Slot trống
+        BE-->>App: Lock OK, countdown 10p
+        App-->>P: Hiện booking-confirm
+        alt Thanh toán ngay
+            P->>App: Nhấn Thanh toán
+            App->>Pay: Initiate payment
+            Pay-->>App: Payment success
+            App->>BE: POST /bookings (status: paid)
+            BE-->>App: Booking created
+            BE->>Owner: Push notification: Booking mới, duyệt trong 30p
+            App-->>P: Thanh toán thành công! Đang chờ chủ sân xác nhận
+            alt Chủ sân duyệt trong 30p
+                Owner->>BE: PATCH /bookings/{id} approve
+                BE-->>Owner: OK
+                BE->>App: Push: Chủ sân đã xác nhận
+                App-->>P: Confirmed! Hẹn gặp tại {sân} lúc {giờ}
+            else Chủ sân từ chối
+                Owner->>BE: PATCH /bookings/{id} reject
+                BE-->>Owner: OK
+                BE->>Pay: Refund 100%
+                BE->>App: Push: Chủ sân từ chối, hoàn tiền
+                App-->>P: E-012
+            else Hết 30p không duyệt
+                BE->>BE: Auto cancel + refund
+                BE->>App: Push: Auto hủy, hoàn tiền
+                BE->>Owner: Push: Cảnh báo không duyệt
+            end
+        else Giữ chỗ 30p
+            P->>App: Nhấn Giữ chỗ
+            App->>BE: POST /bookings (status: pending)
+            BE-->>App: Booking pending, countdown 30p
+            App-->>P: Đã giữ chỗ! 30 phút để thanh toán
+            alt Thanh toán trong 30p
+                P->>App: Thanh toán
+                Note over App,Pay: Tiếp flow thanh toán ở trên
+            else Hết 30p
+                BE->>BE: Auto expire booking + release slot
+                BE->>App: Push: E-011
+            end
+        end
+    else Slot đã bị lock
+        BE-->>App: E-010
+        App-->>P: Khung giờ đã có người đặt
+    end
+```
+
+## Flow: Venue Booking Cancel/Change
+
+> Related: uc-cancel-venue-booking | FR-027, FR-028
+
+```mermaid
+sequenceDiagram
+    participant P as Player
+    participant App as Mobile App
+    participant BE as Backend
+    participant Pay as Payment Gateway
+    participant Owner as Chủ sân
+
+    P->>App: Mở booking-detail, nhấn Hủy
+    App->>BE: GET /bookings/{id}/refund-preview
+    BE-->>App: Số tiền hoàn theo chính sách
+    App-->>P: Confirm: Hoàn {X}đ. Xác nhận hủy?
+    P->>App: Xác nhận
+    App->>BE: PATCH /bookings/{id} cancel
+    BE->>Pay: Refund {X}
+    BE->>Owner: Push: Player hủy booking
+    BE-->>App: Booking cancelled
+    App-->>P: Đã hủy, hoàn {X}đ
 ```

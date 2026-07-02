@@ -27,9 +27,9 @@ N/A — flow tuyến tính, xem Mục d.
 
 ## f. Screens Involved
 
-| Screen | Vai trò trong UC |
-|--------|-----------------|
-| rate-opponent | Chấm sao (1-5) + nhận xét text + nút Gửi |
+| Screen | Component | Vai trò trong UC |
+|--------|-----------|-----------------|
+| rate-opponent | #rating-section | Chấm sao (1-5) + nhận xét text + nút Gửi (hiện sau report kết quả) |
 
 ## g. FR Mapping
 

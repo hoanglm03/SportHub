@@ -1,18 +1,24 @@
 ---
 type: prd
 feature: sport-matching
-status: draft
+status: in-review
 lang: vi
 owner: "@hoangle"
 created: 2026-06-04
-updated: 2026-06-04
+updated: 2026-06-23
 links:
   - docs/sport-matching/urd.md
   - docs/sport-matching/brd.md
   - docs/sport-matching/brainstorms/geo-skill-matching.md
+  - docs/sport-matching/srs/spec.md
 tags: [prd, sport-matching]
 stale_reason: ""
 changelog:
+  - 2026-06-25 | /review | fix BLOCKING: Release Plan v1.0 thêm CAP-16→21; thêm v3.0 row cho CAP-27→30; fix W1: Non-goals align P2 scope
+  - 2026-06-25 | /prd | thêm CAP-27→30 P2 (ghép đội, giải đấu, social feed, khuyến mãi)
+  - 2026-06-23 | /prd | thêm CAP-22→26 (chat, noti, profile, admin, onboarding) P1 features
+  - 2026-06-23 | /prd | thêm CAP-17→21 (tìm sân, đặt sân, hủy/đổi, đánh giá sân, đăng sân) từ brainstorm venue-search-booking
+  - 2026-06-23 | /gap | status draft→in-review, added forward link SRS
   - 2026-06-07 | /gap | added CAP-sport-matching-16 Report kết quả trận (gap fix: FR-021 orphan)
   - 2026-06-04 | /prd | resolved OQ-1,OQ-2,OQ-3: commission 12% cố định, chỉ 1v1, thanh toán tại sân v1.0
   - 2026-06-04 | /prd | initial PRD draft từ URD + BRD + brainstorm geo-skill-matching
@@ -46,7 +52,7 @@ Sản phẩm hoạt động như nền tảng giao dịch đặt chỗ (E-commer
 
 - **Không tự vận hành sân:** App chỉ là platform kết nối Player-Partner, không sở hữu hay quản lý sân thể thao.
 - **Không tự xây hệ thống thanh toán riêng:** Tích hợp MoMo/VNPay làm cổng thanh toán, không phát triển payment gateway nội bộ.
-- **Không hỗ trợ team sport:** v1.0 chỉ 1v1. 2v2+ và quản lý đội bóng/giải đấu để future.
+- **Không hỗ trợ team sport (v1.0):** v1.0 chỉ 1v1. Ghép đội (2v2+) và giải đấu là P2 roadmap (CAP-27, CAP-28).
 - **Không phải mạng xã hội:** Không chat, feed, đăng bài, theo dõi bạn bè.
 - **Không hỗ trợ offline / web / đa ngôn ngữ** giai đoạn hiện tại.
 
@@ -73,6 +79,11 @@ Sản phẩm hoạt động như nền tảng giao dịch đặt chỗ (E-commer
 | CAP-sport-matching-06 | Đánh giá đối thủ | Rating + nhận xét sau trận. Nhắc nhở đánh giá qua notification. Rating trung bình hiển thị trên profile |
 | CAP-sport-matching-07 | Lịch sử trận + Thống kê | Danh sách trận (sân, giờ, đối thủ) + thống kê win/loss + rating nhận từ đối thủ. Theo dõi tiến bộ |
 | CAP-sport-matching-16 | Report kết quả trận | Cả 2 Player tự report Thắng/Thua/Hòa sau trận. Report khớp → ghi nhận. Conflict → Admin review. Dùng cho thống kê win/loss |
+| CAP-sport-matching-17 | Tìm sân độc lập | Tìm sân theo môn/khu vực/ngày/giá (không cần ghép đối thủ). Xem chi tiết: hình ảnh, giá, lịch trống real-time, đánh giá, tiện ích, bản đồ. Chọn sân con cụ thể |
+| CAP-sport-matching-18 | Đặt sân online | Chọn khung giờ, thanh toán ngay hoặc giữ chỗ 30p. Tạm giữ 10p tránh concurrent. Chủ sân duyệt 30p. Auto hủy + hoàn tiền nếu hết giờ duyệt |
+| CAP-sport-matching-19 | Hủy/đổi booking sân | Hủy: hoàn 100% (>24h), 50% (2-12h), 0% (<2h). Đổi giờ/sân 1 lần trước 24h. Max 3 booking đồng thời |
+| CAP-sport-matching-20 | Đánh giá sân | 5 sao + review text + điểm thưởng. Deadline 7 ngày có thưởng. 1 đánh giá per booking |
+| CAP-sport-matching-21 | Chủ sân đăng sân | Đăng thông tin + ≥3 ảnh + sân con. Admin duyệt trước khi hiển thị. Block khung giờ (bảo trì/khách offline). Cảnh báo/khóa nếu không duyệt 3-5 lần |
 
 ### 4.2 P1 — soon after (v1.1)
 
@@ -83,6 +94,11 @@ Sản phẩm hoạt động như nền tảng giao dịch đặt chỗ (E-commer
 | CAP-sport-matching-10 | Partner đăng ký sân | Tên, địa chỉ, tọa độ, slot giờ, giá, môn hỗ trợ. Manual KYC qua Zalo |
 | CAP-sport-matching-11 | Ví điện tử nội bộ | In-app Wallet: số dư, nạp/rút, hoàn tiền dạng điểm thưởng. Giảm refund fee qua ngân hàng |
 | CAP-sport-matching-12 | Premium subscription | 49.000 VND/tháng, unlock unlimited invite/ngày. Gợi ý upgrade khi đạt limit free |
+| CAP-sport-matching-22 | Chat real-time | Chat 1-1 giữa Player + Player (sau match) và Player + chủ sân. Text + ảnh. Lịch sử chat. Online/offline status |
+| CAP-sport-matching-23 | Notification Center | Icon chuông + badge đếm. Danh sách noti (deep link). Đánh dấu đã đọc. Cài đặt bật/tắt từng loại noti |
+| CAP-sport-matching-24 | Profile & Settings | Xem/sửa profile (tên, avatar, email). Đổi mật khẩu. Cài đặt riêng tư (ẩn profile, ẩn GPS). Xóa tài khoản (30 ngày grace) |
+| CAP-sport-matching-25 | Admin Dashboard | Quản lý user/sân/booking. Dashboard doanh thu. Moderate đánh giá. Xử lý tranh chấp |
+| CAP-sport-matching-26 | Onboarding chủ sân tự động | Đăng ký Partner trên app: thông tin + CMND + giấy phép. Xác nhận điều khoản. Auto/manual verify. Thay thế KYC qua Zalo |
 
 ### 4.3 P2 — future
 
@@ -91,6 +107,10 @@ Sản phẩm hoạt động như nền tảng giao dịch đặt chỗ (E-commer
 | CAP-sport-matching-13 | Hủy trận + Ma trận Hoàn tiền | Hủy tối đa 3/tháng, cooldown 15 phút. Ma trận: >24h hoàn 100%, 6-24h hoàn 50% + đền bù sân 40%, <6h không hoàn + đền bù 90% |
 | CAP-sport-matching-14 | Phát hiện đánh giá ác ý | Thuật toán phát hiện mẫu bất thường (luôn rate 1 sao). Admin moderate + loại bỏ |
 | CAP-sport-matching-15 | Báo cáo quản trị | Admin dashboard: số user, trận, revenue, analytics. Aggregated data cho báo cáo |
+| CAP-sport-matching-27 | Ghép đội (Team Matching) | Mở rộng từ 1v1 sang 2v2, 3v3+. System ghép random đội vs đội theo Matching Score. Captain tạo/quản lý đội. Hỗ trợ môn ≥2 người/đội (cầu lông đôi, pickleball đôi, bóng đá 5v5...) |
+| CAP-sport-matching-28 | Giải đấu (Tournament) | Player tự tạo giải tự phát hoặc Admin/Partner/cộng đồng tạo giải chính thức. Format: bracket (loại trực tiếp) + round-robin. Giải tự phát: miễn phí. Giải cộng đồng lớn: phí đặt cọc để xác nhận tham gia. Bảng xếp hạng, kết quả |
+| CAP-sport-matching-29 | Social Feed | Player đăng bài tự do (text + ảnh + video). Like, comment, follow player khác. Feed timeline theo follow. Chia sẻ kết quả trận. Moderate nội dung (Admin) |
+| CAP-sport-matching-30 | Hệ thống khuyến mãi | Voucher giảm giá đặt sân + mã referral mời bạn. Admin tạo chiến dịch hoặc hệ thống tự động trigger (VD: voucher chào mừng user mới, birthday). Tracking sử dụng + hiệu quả |
 
 > P0/P1/P2 là **capability/scope decisions** trong feature này, KHÔNG phải feature breakdown.
 
@@ -125,9 +145,10 @@ Sản phẩm hoạt động như nền tảng giao dịch đặt chỗ (E-commer
 
 | Release | Capabilities | Target Date | Status |
 |---------|--------------|-------------|--------|
-| v1.0 (MVP Launch) | CAP-01 đến CAP-07 (Đăng ký, Matching, Bản đồ, Đặt sân, Invite, Đánh giá, Lịch sử) | Tháng 6/2026 | planned |
+| v1.0 (MVP Launch) | CAP-01 đến CAP-07, CAP-16 đến CAP-21 (Đăng ký, Matching, Bản đồ, Đặt sân, Invite, Đánh giá, Lịch sử, Report kết quả, Tìm sân độc lập, Đặt sân online, Hủy/đổi booking, Đánh giá sân, Chủ sân đăng sân) | Tháng 6/2026 | planned |
 | v1.1 | CAP-08 đến CAP-12 (Thanh toán, Auto-adjust, Partner đăng ký, Ví nội bộ, Premium) | Tháng 8-9/2026 | planned |
-| v2.0 | CAP-13 đến CAP-15 (Hủy trận + Hoàn tiền, Phát hiện ác ý, Báo cáo) | TBD | planned |
+| v2.0 | CAP-13 đến CAP-15, CAP-22 đến CAP-26 (Hủy trận + Hoàn tiền, Phát hiện ác ý, Báo cáo, Chat, Noti, Profile, Admin, Onboarding) | TBD | planned |
+| v3.0 (Future) | CAP-27 đến CAP-30 (Ghép đội, Giải đấu, Social Feed, Khuyến mãi) | TBD | roadmap |
 
 **Milestones chi tiết (từ BRD):**
 

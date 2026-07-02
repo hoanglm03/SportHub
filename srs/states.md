@@ -1,7 +1,7 @@
 ---
 type: srs-states
 feature: sport-matching
-updated: 2026-06-04
+updated: 2026-06-23
 ---
 
 # Sport Matching — State Diagrams
@@ -73,3 +73,57 @@ stateDiagram-v2
 | Pending | Accepted | Opponent nhấn Accept | Không |
 | Pending | Rejected | Opponent nhấn Reject | Không |
 | Pending | Expired | 5 phút không phản hồi | Không |
+
+## State: Booking (Đặt sân)
+
+```mermaid
+stateDiagram-v2
+    [*] --> pending: Player giữ chỗ
+    [*] --> paid: Player thanh toán ngay
+    pending --> paid: Thanh toán trong 30p
+    pending --> expired: Hết 30p không thanh toán
+    paid --> confirmed: Chủ sân duyệt
+    paid --> rejected: Chủ sân từ chối
+    paid --> auto_cancelled: Hết 30p không duyệt
+    confirmed --> completed: Qua giờ chơi
+    confirmed --> cancelled: Player hủy
+    expired --> [*]
+    rejected --> [*]
+    auto_cancelled --> [*]
+    completed --> [*]
+    cancelled --> [*]
+```
+
+| Từ | Sang | Trigger | Reversible |
+|----|------|---------|------------|
+| (mới) | pending | Player chọn Giữ chỗ | Không |
+| (mới) | paid | Player thanh toán ngay | Không |
+| pending | paid | Thanh toán trong 30p | Không |
+| pending | expired | Hết 30p không thanh toán | Không |
+| paid | confirmed | Chủ sân duyệt trong 30p | Không |
+| paid | rejected | Chủ sân từ chối → hoàn tiền auto | Không |
+| paid | auto_cancelled | Hết 30p chủ sân không duyệt → hoàn tiền | Không |
+| confirmed | completed | Qua giờ chơi | Không |
+| confirmed | cancelled | Player hủy (hoàn tiền theo chính sách) | Không |
+
+## State: Venue (Sân)
+
+```mermaid
+stateDiagram-v2
+    [*] --> pending_review: Chủ sân submit
+    pending_review --> active: Admin duyệt
+    pending_review --> rejected: Admin từ chối
+    rejected --> pending_review: Chủ sân sửa + submit lại
+    active --> suspended: Admin khóa hoặc 5 lần không duyệt
+    active --> inactive: Chủ sân tạm đóng
+    suspended --> active: Admin mở lại
+    inactive --> active: Chủ sân mở lại
+```
+
+| Từ | Sang | Trigger | Reversible |
+|----|------|---------|------------|
+| (mới) | pending_review | Chủ sân submit sân mới | Không |
+| pending_review | active | Admin duyệt | Có (admin khóa) |
+| pending_review | rejected | Admin từ chối + gửi lý do | Có (sửa + submit lại) |
+| active | suspended | Admin khóa hoặc 5 lần không duyệt booking | Có (admin mở lại) |
+| active | inactive | Chủ sân tạm đóng sân | Có (mở lại) |

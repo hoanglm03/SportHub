@@ -1,16 +1,23 @@
 ---
 type: urd
 feature: sport-matching
-status: draft
+status: in-review
 lang: vi
 owner: "@hoangle"
 created: 2026-06-04
-updated: 2026-06-04
+updated: 2026-06-23
 links:
   - docs/sport-matching/brainstorms/geo-skill-matching.md
+  - docs/sport-matching/brainstorms/venue-search-booking.md
+  - docs/sport-matching/brd.md
+  - docs/sport-matching/prd.md
+  - docs/sport-matching/srs/spec.md
 tags: [urd, sport-matching]
 stale_reason: ""
 changelog:
+  - 2026-06-25 | /review | fix BLOCKING: Mục 8 Out of Scope align với P1/P2 roadmap (chat CAP-22, social CAP-29, giải đấu CAP-27/28)
+  - 2026-06-23 | /urd | thêm user needs #8-#11 (tìm đặt sân), Partner needs #4-#6, Journey 4+5 từ brainstorm venue-search-booking
+  - 2026-06-23 | /gap | status draft→in-review, added forward links BRD/PRD/SRS
   - 2026-06-04 | /urd | resolved OQ-1,OQ-2,OQ-3: peak hours, shared app, stats win/loss
   - 2026-06-04 | /urd | initial URD draft từ brainstorm geo-skill-matching
 ---
@@ -22,9 +29,11 @@ changelog:
 
 ## 1. Purpose
 
-Doc này capture nhu cầu người dùng cho tính năng **Sport Matching** — ứng dụng ghép đối thủ thể thao theo vị trí GPS và trình độ, kết hợp đặt sân trực tiếp. Dành cho UX, PM, BA review trước khi chuyển sang BRD/PRD/SRS.
+Doc này capture nhu cầu người dùng cho tính năng **Sport Matching** — ứng dụng ghép đối thủ thể thao theo vị trí GPS và trình độ, kết hợp đặt sân trực tiếp, và **tìm & đặt sân độc lập** (không cần ghép đôi). Dành cho UX, PM, BA review trước khi chuyển sang BRD/PRD/SRS.
 
-Feature giải quyết pain point: người chơi thể thao tại Việt Nam hiện phải tìm đối thủ qua group Facebook, không có cơ chế lọc trình độ hay vị trí, rất mất thời gian và thiếu chính xác.
+Feature giải quyết 2 pain point chính:
+1. Người chơi phải tìm đối thủ qua group Facebook — không lọc được trình độ hay vị trí.
+2. Người chơi phải gọi điện từng sân hỏi lịch trống, không biết giá trước, không so sánh được nhiều sân.
 
 ## 2. User Types
 
@@ -52,13 +61,20 @@ Feature giải quyết pain point: người chơi thể thao tại Việt Nam hi
 5. "Tôi muốn biết rõ khi nào, ở đâu, chơi với ai" — sau khi match thành công, nhận thông tin đầy đủ: tên đối thủ, sân, giờ, vị trí trên bản đồ.
 6. "Tôi muốn đánh giá đối thủ sau trận" — để giúp hệ thống ghép tốt hơn lần sau, và để mình biết ai chơi fair.
 7. "Tôi muốn xem lịch sử trận và biết mình tiến bộ thế nào" — danh sách trận đã chơi (sân, giờ, đối thủ), thống kê win/loss, rating nhận được từ đối thủ sau mỗi trận.
+8. "Tôi muốn tìm sân theo khu vực, môn, ngày, giá — không cần ghép đối thủ" — tìm sân độc lập khi đã có nhóm chơi, xem hình ảnh, giá, lịch trống, đánh giá, tiện ích để so sánh.
+9. "Tôi muốn đặt sân online, thanh toán hoặc giữ chỗ trước" — chọn sân con + khung giờ, thanh toán ngay hoặc giữ chỗ 30 phút, chờ chủ sân duyệt trong 30 phút.
+10. "Tôi muốn hủy hoặc đổi giờ khi có việc đột xuất" — hủy booking với chính sách hoàn tiền rõ ràng (trước 24h hoàn 100%, 2-12h hoàn 50%, dưới 2h không hoàn). Đổi giờ/sân 1 lần nếu trước 24h.
+11. "Tôi muốn đánh giá sân sau khi chơi" — chấm 1-5 sao + review, nhận điểm thưởng tích lũy. Giúp người chơi khác chọn sân tốt hơn.
 
 ### Secondary users
 
 **Partner (Chủ sân):**
-1. Muốn đăng thông tin sân lên nền tảng (tên, địa chỉ, môn hỗ trợ, slot giờ, giá) để player tìm thấy.
+1. Muốn đăng thông tin sân lên nền tảng (tên, địa chỉ, môn hỗ trợ, slot giờ, giá, hình ảnh tối thiểu 3 tấm) để player tìm thấy. Admin duyệt trước khi hiển thị.
 2. Muốn biết slot nào đã được đặt, slot nào còn trống — quản lý dễ dàng.
 3. Muốn tiếp cận lượng player mới ngoài tệp khách quen.
+4. Muốn duyệt hoặc từ chối booking trong 30 phút — nhận noti khi có booking mới.
+5. Muốn block khung giờ khi sân bảo trì hoặc đã có khách offline.
+6. Muốn xem đánh giá sân từ player để cải thiện dịch vụ.
 
 **Staff (Nhân viên đối tác):**
 1. Muốn xem và xác nhận đặt chỗ nhanh, tránh trùng lịch.
@@ -119,6 +135,51 @@ Player mở app ──► Bản đồ + GPS
 4. Gửi đánh giá, hệ thống cập nhật rating đối thủ
 5. Nếu đánh giá cho thấy trình độ thực tế khác khai báo, hệ thống tự điều chỉnh dần
 
+### Journey 4: Player tìm & đặt sân độc lập (không ghép đối thủ)
+
+1. Player mở tab Tìm sân (từ tab chính / search bar / trang chủ)
+2. Chọn bộ lọc: môn thể thao, khu vực, ngày, khoảng giá
+3. Xem danh sách sân phù hợp (hình ảnh, giá, đánh giá, khoảng cách)
+4. Chọn sân, xem chi tiết: lịch trống real-time, tiện ích, vị trí bản đồ
+5. Chọn sân con (Sân A, Sân B) + khung giờ
+6. Chọn thanh toán ngay hoặc giữ chỗ 30 phút
+7. Chờ chủ sân duyệt trong 30 phút
+8. Chủ sân duyệt → nhận noti xác nhận với đầy đủ thông tin
+9. Sau buổi chơi → nhận nhắc đánh giá sân, được điểm thưởng
+
+```
+Player mở Tìm sân ──► Lọc môn/khu vực/ngày/giá
+       │
+       ▼
+  Danh sách sân ──► Chọn sân chi tiết
+       │
+       ▼
+  Chọn sân con + giờ ──► Thanh toán / Giữ chỗ 30p
+       │
+       ▼
+  Chờ chủ sân duyệt (30p)
+       │
+  ┌────┴────┐
+  │         │
+ Duyệt   Từ chối
+  │         │
+  ▼         ▼
+Confirmed  Hoàn tiền
+  │
+  ▼
+Đánh giá sân + điểm thưởng
+```
+
+### Journey 5: Chủ sân đăng sân + quản lý booking
+
+1. Chủ sân mở "Quản lý sân", chọn "Đăng sân mới"
+2. Nhập thông tin: tên, địa chỉ, tọa độ, môn, giá/giờ, tiện ích, upload ≥3 ảnh
+3. Thêm danh sách sân con + khung giờ hoạt động
+4. Submit → chờ Admin duyệt
+5. Admin duyệt → sân hiển thị cho player
+6. Nhận noti khi có booking mới → duyệt/từ chối trong 30 phút
+7. Block khung giờ khi cần (bảo trì, khách offline)
+
 ## 5. User-side Constraints
 
 - **Mobile only:** Android + iOS (TestFlight giai đoạn đầu). Tất cả roles (Player, Partner, Staff, Admin) dùng chung 1 app với quyền khác nhau. Không có phiên bản web hay dashboard riêng.
@@ -151,8 +212,8 @@ Player mở app ──► Bản đồ + GPS
 
 ## 8. Out of Scope
 
-- **Không phải mạng xã hội:** không có chat, feed, đăng bài, theo dõi bạn bè, bình luận.
-- **Không tổ chức giải đấu / tournament:** app chỉ ghép trận đơn lẻ, không quản lý bracket/vòng loại.
+- **Không phải mạng xã hội (v1.0):** không có chat, feed, đăng bài, theo dõi bạn bè, bình luận trong phiên bản đầu. Chat 1-1 thuộc P1 roadmap (CAP-22); Social Feed thuộc P2 roadmap (CAP-29).
+- **Không tổ chức giải đấu / tournament (v1.0):** v1.0 chỉ ghép trận đơn lẻ. Giải đấu + ghép đội thuộc P2 roadmap (CAP-27, CAP-28).
 - **Không bán dụng cụ thể thao:** không có marketplace, không e-commerce sản phẩm.
 - **Không có phiên bản web cho Player:** chỉ mobile app.
 - **Không hỗ trợ offline:** tất cả tính năng yêu cầu internet liên tục.

@@ -1,17 +1,23 @@
 ---
 type: brd
 feature: sport-matching
-status: draft
+status: in-review
 lang: vi
 owner: "@hoangle"
 created: 2026-06-04
-updated: 2026-06-04
+updated: 2026-06-23
 links:
   - docs/sport-matching/urd.md
   - docs/sport-matching/brainstorms/geo-skill-matching.md
+  - docs/sport-matching/prd.md
+  - docs/sport-matching/srs/spec.md
 tags: [brd, sport-matching]
 stale_reason: ""
 changelog:
+  - 2026-06-26 | /gap | fix G1: thêm Mục 4.3 mapping CAP-22→30 vào BO-01→05; fix G7: brainstorm links đã có (false alarm)
+  - 2026-06-25 | /review | fix W2: Mục 5.2 Out of Scope align P1/P2 roadmap (chat/social/giải đấu)
+  - 2026-06-23 | /brd | thêm BO-05 (booking conversion), scope đặt sân độc lập + đánh giá sân + đăng sân, metrics mới
+  - 2026-06-23 | /gap | status draft→in-review, added forward links PRD/SRS
   - 2026-06-04 | /prd | cascade từ PRD OQ-1: commission chốt 12% cố định (trước đó 10-15%)
   - 2026-06-04 | /brd | resolved OQ-1,OQ-2,OQ-3,OQ-4: commission 12%, premium 49k, ma trận hoàn tiền, cost categories
   - 2026-06-04 | /brd | initial BRD draft từ URD + brainstorm geo-skill-matching
@@ -61,8 +67,21 @@ Standalone product — không nằm trong chiến lược hay hệ sinh thái l�
 - **BO-sport-matching-02:** Onboard **50 sân đối tác** trong 3 tháng đầu kể từ launch (tăng từ 5 sân beta, gấp 10 lần). Đo bằng số Partner có ít nhất 1 slot active trên hệ thống.
 - **BO-sport-matching-03:** Đạt **tỷ lệ lấp đầy sân (slot occupancy rate) 70%** tại các khung giờ cao điểm (17h-22h ngày thường + cuối tuần) trong 6 tháng đầu. Đo bằng tỷ lệ slot booked / slot available trong peak hours.
 - **BO-sport-matching-04:** Đạt **revenue break-even** (hòa vốn) trong 12 tháng kể từ launch. Đo bằng tổng revenue (commission + premium) >= tổng chi phí vận hành.
+- **BO-sport-matching-05:** Đạt **booking conversion rate ≥ 20%** (từ xem sân đến đặt thành công) và **tỷ lệ chủ sân duyệt trong 30 phút ≥ 80%** trong 6 tháng đầu. Đo bằng analytics dashboard.
 
-### 4.2 Success metrics (quantitative)
+### 4.3 Capability → Objective mapping (P1/P2)
+
+Các capabilities P1/P2 không tạo ra BO riêng nhưng đều phục vụ BO-01→05 hiện có:
+
+| Capabilities | Phục vụ BO | Lý do |
+|---|---|---|
+| CAP-22 (Chat), CAP-23 (Notification) | BO-01 (MAU) | Tăng engagement và retention — Player có lý do quay lại app |
+| CAP-24 (Profile/Settings), CAP-26 (Onboarding chủ sân) | BO-01, BO-02 | Profile hoàn chỉnh tăng trust; onboarding nhanh tăng Partner adoption |
+| CAP-25 (Admin Dashboard) | BO-01, BO-03, BO-05 | Giám sát KPI, xử lý vi phạm bảo vệ chất lượng nền tảng |
+| CAP-27 (Ghép đội), CAP-28 (Giải đấu) | BO-01 | Mở rộng use case → giữ chân Player lâu dài, viral growth |
+| CAP-29 (Social Feed), CAP-30 (Khuyến mãi) | BO-01, BO-03, BO-05 | Community tăng organic retention; voucher/referral tăng booking conversion |
+
+### 4.4 Success metrics (quantitative)
 
 | Metric | Target | Window | Đo bằng |
 |--------|--------|--------|---------|
@@ -74,13 +93,20 @@ Standalone product — không nằm trong chiến lược hay hệ sinh thái l�
 | Player retention (tuần đầu) | ≥ 40% | Ongoing | Player chơi trận thứ 2 / tổng Player |
 | App rating | ≥ 4.0/5 | Ongoing | Store rating |
 | Revenue break-even | Tổng revenue ≥ tổng cost | 12 tháng post-launch | P&L report |
+| Booking conversion (đặt sân) | ≥ 20% | Ongoing | Bookings / venue page views |
+| Chủ sân duyệt trong 30p | ≥ 80% | Ongoing | Approved within 30m / total bookings |
+| Tỷ lệ hủy booking | < 15% | Ongoing | Cancelled / total confirmed |
+| Đánh giá sân trung bình | ≥ 3.5/5 | Ongoing | Average venue rating |
 
 ## 5. Scope
 
 ### 5.1 In scope
 
 - Matching đối thủ theo vị trí GPS + trình độ (Matching Score: môn 100% hard filter, vị trí 40%, trình độ 40%, rating 20%)
-- Đặt sân + giữ chỗ tạm (Pessimistic Slot Locking 5 phút)
+- Đặt sân qua matching flow + giữ chỗ tạm (Pessimistic Slot Locking 5 phút)
+- **Tìm & đặt sân độc lập** (không cần ghép đối thủ): tìm theo môn/khu vực/ngày/giá, thanh toán hoặc giữ chỗ 30 phút, chủ sân duyệt 30 phút, chính sách hoàn tiền 3 mức, đổi giờ/sân 1 lần
+- **Đánh giá sân** 5 sao + review + điểm thưởng tích lũy
+- **Chủ sân đăng sân** (admin duyệt), block khung giờ, quản lý booking real-time
 - Đánh giá đối thủ sau trận + auto-adjust trình độ (ELO-based)
 - Mô hình freemium: free 10 invite/ngày/môn, Premium unlimited
 - Commission 12% trên booking sân (nguồn thu chính)
@@ -98,8 +124,8 @@ Standalone product — không nằm trong chiến lược hay hệ sinh thái l�
 
 ### 5.2 Out of scope
 
-- Mạng xã hội (chat, feed, đăng bài, theo dõi bạn bè)
-- Tổ chức giải đấu / tournament
+- Mạng xã hội (chat, feed, đăng bài, theo dõi bạn bè) — *v1.0 scope; Chat P1 roadmap (CAP-22), Social Feed P2 roadmap (CAP-29)*
+- Tổ chức giải đấu / tournament — *v1.0 scope; Giải đấu + ghép đội P2 roadmap (CAP-27, CAP-28)*
 - Bán dụng cụ thể thao (marketplace)
 - Phiên bản web
 - Hỗ trợ offline

@@ -28,6 +28,10 @@
 │  ┌───────────────────┐  │
 │  │   VỀ TRANG CHÍNH  │  │
 │  └───────────────────┘  │
+│                         │
+│  ┌───────────────────┐  │
+│  │   ❌ HỦY TRẬN     │  │
+│  └───────────────────┘  │
 └─────────────────────────┘
 ```
 
@@ -41,3 +45,5 @@
 | 4 | Bản đồ mini | map embed | • Vị trí sân trên bản đồ nhỏ<br>• Tap: mở Google Maps navigation |
 | 5 | Thanh toán + giá | static text | • v1.0: "Tại sân" + giá<br>• Ref: BR-sport-matching-011 |
 | 6 | Nút Về trang chính | button primary | • Chuyển về map-search |
+| 7 | Nút Hủy trận | button destructive | • Confirm dialog: "Hủy trận? (còn {N}/3 lượt tháng này)"<br>• Thành công: hủy match + release slot + noti đối thủ<br>• E-sport-matching-008: "Đã đạt giới hạn hủy tháng này" (max 3/tháng)<br>• E-sport-matching-009: "Vui lòng đợi {mm:ss} trước khi tạo trận mới" (cooldown 15p nếu 2 hủy/1h) |
+| 8 | Loading state | state | Spinner khi đang xử lý hủy |
