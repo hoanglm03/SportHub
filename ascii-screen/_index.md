@@ -12,12 +12,12 @@ links:
 tags: [screens, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-26 | /gap | added 3 P1 screens: payment-checkout, wallet, premium-upgrade (gap fix)
-  - 2026-06-25 | /srs | added 5 P2 screens: team-manage, tournament-list, tournament-detail, social-feed, voucher-list
-  - 2026-06-23 | /review | fix uxui findings: login.md + venue-register.md created, booking-confirm countdown fixed, match-confirmed cancel+E008/E009, loading states register/otp/profile, invite-receive exit path, otp-verify context variant, admin loading
-  - 2026-06-23 | /srs | added 6 P1 screens: chat-list, chat-detail, notification-center, settings, admin-dashboard, partner-onboard
-  - 2026-06-23 | /srs | added 6 venue-booking screens: venue-search, venue-detail, booking-confirm, booking-detail, venue-rate, venue-manage
-  - 2026-06-07 | /review | [invite-waiting] added screen post-review: countdown 5p + cancel + 3 states
+  - '2026-06-26 | /gap | added 3 P1 screens: payment-checkout, wallet, premium-upgrade (gap fix)'
+  - '2026-06-25 | /srs | added 5 P2 screens: team-manage, tournament-list, tournament-detail, social-feed, voucher-list'
+  - '2026-06-23 | /review | fix uxui findings: login.md + venue-register.md created, booking-confirm countdown fixed, match-confirmed cancel+E008/E009, loading states register/otp/profile, invite-receive exit path, otp-verify context variant, admin loading'
+  - '2026-06-23 | /srs | added 6 P1 screens: chat-list, chat-detail, notification-center, settings, admin-dashboard, partner-onboard'
+  - '2026-06-23 | /srs | added 6 venue-booking screens: venue-search, venue-detail, booking-confirm, booking-detail, venue-rate, venue-manage'
+  - '2026-06-07 | /review | [invite-waiting] added screen post-review: countdown 5p + cancel + 3 states'
   - 2026-06-04 | /srs | initial 12 screens scaffolded
 ---
 

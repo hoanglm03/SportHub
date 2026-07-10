@@ -14,13 +14,13 @@ links:
 tags: [prd, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-25 | /review | fix BLOCKING: Release Plan v1.0 thêm CAP-16→21; thêm v3.0 row cho CAP-27→30; fix W1: Non-goals align P2 scope
+  - '2026-06-25 | /review | fix BLOCKING: Release Plan v1.0 thêm CAP-16→21; thêm v3.0 row cho CAP-27→30; fix W1: Non-goals align P2 scope'
   - 2026-06-25 | /prd | thêm CAP-27→30 P2 (ghép đội, giải đấu, social feed, khuyến mãi)
   - 2026-06-23 | /prd | thêm CAP-22→26 (chat, noti, profile, admin, onboarding) P1 features
   - 2026-06-23 | /prd | thêm CAP-17→21 (tìm sân, đặt sân, hủy/đổi, đánh giá sân, đăng sân) từ brainstorm venue-search-booking
   - 2026-06-23 | /gap | status draft→in-review, added forward link SRS
-  - 2026-06-07 | /gap | added CAP-sport-matching-16 Report kết quả trận (gap fix: FR-021 orphan)
-  - 2026-06-04 | /prd | resolved OQ-1,OQ-2,OQ-3: commission 12% cố định, chỉ 1v1, thanh toán tại sân v1.0
+  - '2026-06-07 | /gap | added CAP-sport-matching-16 Report kết quả trận (gap fix: FR-021 orphan)'
+  - '2026-06-04 | /prd | resolved OQ-1,OQ-2,OQ-3: commission 12% cố định, chỉ 1v1, thanh toán tại sân v1.0'
   - 2026-06-04 | /prd | initial PRD draft từ URD + BRD + brainstorm geo-skill-matching
 ---
 

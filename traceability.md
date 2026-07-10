@@ -4,9 +4,9 @@ status: draft
 created: 2026-06-07
 updated: 2026-06-24
 changelog:
-  - 2026-06-25 | /gap | [sport-matching] rescan post P2 batch + /review fixes: ~105 files, 9 gaps (0 blocking), 1 conflict, coverage 98%. Matrix rebuilt ở docs/_shared/traceability.md
-  - 2026-06-24 | /gap | [sport-matching] full rescan post P1 expansion: 89 files, coverage 97%, 4 suggestions, 0 blocking, 0 conflicts
-  - 2026-06-23 | /gap | [sport-matching] rescan: 4 gaps fixed (status drift, links, UC FR-021), coverage 98%, 1 OQ mới
+  - '2026-06-25 | /gap | [sport-matching] rescan post P2 batch + /review fixes: ~105 files, 9 gaps (0 blocking), 1 conflict, coverage 98%. Matrix rebuilt ở docs/_shared/traceability.md'
+  - '2026-06-24 | /gap | [sport-matching] full rescan post P1 expansion: 89 files, coverage 97%, 4 suggestions, 0 blocking, 0 conflicts'
+  - '2026-06-23 | /gap | [sport-matching] rescan: 4 gaps fixed (status drift, links, UC FR-021), coverage 98%, 1 OQ mới'
   - 2026-06-07 | /gap | [sport-matching] initial scan, 5 gaps 0 conflicts, coverage 93%
 ---
 

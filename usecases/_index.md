@@ -11,10 +11,10 @@ links:
 tags: [usecases, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-26 | /gap | thêm 5 UCs P1/P2: uc-payment, uc-wallet, uc-premium, uc-notification, uc-cancel-match; fix uc-manage-court screen
-  - 2026-06-25 | /review | fix S4: P2 block thêm header row cho format nhất quán
+  - '2026-06-26 | /gap | thêm 5 UCs P1/P2: uc-payment, uc-wallet, uc-premium, uc-notification, uc-cancel-match; fix uc-manage-court screen'
+  - '2026-06-25 | /review | fix S4: P2 block thêm header row cho format nhất quán'
   - 2026-06-25 | /usecase | [uc-team-matching, uc-tournament, uc-social-feed, uc-promotions] 4 P2 UCs created
-  - 2026-06-23 | /review | fix UC findings: rate-opponent component split, uc-cancel tier 12-24h, uc-view-history +FR-021, uc-admin +FR-021, uc-manage-court OQ FR-015 vs FR-047, uc-profile-settings +FR-035, FR orphan notes
+  - '2026-06-23 | /review | fix UC findings: rate-opponent component split, uc-cancel tier 12-24h, uc-view-history +FR-021, uc-admin +FR-021, uc-manage-court OQ FR-015 vs FR-047, uc-profile-settings +FR-035, FR orphan notes'
   - 2026-06-23 | /usecase | [uc-search-venue, uc-book-venue, uc-cancel-venue-booking, uc-rate-venue, uc-manage-venue] 5 venue-booking UCs created
   - 2026-06-23 | /gap | [uc-report-result] created UC for FR-021 (gap fix)
   - 2026-06-04 | /srs | initial 6 UCs scaffolded

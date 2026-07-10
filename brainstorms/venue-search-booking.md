@@ -17,7 +17,7 @@ links:
 tags: [brainstorm, sport-matching, venue-booking]
 stale_reason: ""
 changelog:
-  - 2026-06-23 | /brainstorm | resolved OQ-1: 500 user giai đoạn đầu
+  - '2026-06-23 | /brainstorm | resolved OQ-1: 500 user giai đoạn đầu'
   - 2026-06-23 | /brainstorm | initial brainstorm cho venue-search-booking, deep mode
 ---
 

@@ -14,18 +14,18 @@ links:
 tags: [srs, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-26 | /gap | fix G4: thêm E-031 "Đội đối phương không phản hồi" vào Error Matrix (FR-049 error path)
-  - 2026-06-25 | /review | fix BLOCKING: Mục 1 Boundary align P2 scope; fix W5: FR-050 ambiguous; fix W6: FR-052 edge case hủy giải; fix S3: FR-055 note algorithm TBD
-  - 2026-06-25 | /srs | thêm FR-048→059 P2 (ghép đội, giải đấu, social feed, khuyến mãi), E-026→030
-  - 2026-06-23 | /review | fix 5 BLOCKING + 6 WARNING: gap hoàn tiền 12-24h, NFR payment/chat/GPS/auth, OQ-1+OQ-2 resolved, FR-024 align BR-011, FR-040 edge cases, FR-033 moderation, sync sections 6/7/8, auth matrix BR-025/026, errors E-020→023
-  - 2026-06-23 | /srs | thêm FR-033→047 (chat, noti, profile, wallet, admin, onboarding), E-015→019
-  - 2026-06-23 | /srs | thêm FR-022→032 (tìm đặt sân), E-010→014, BR-014→024 từ brainstorm venue-search-booking
-  - 2026-06-07 | /review | round 2 by @senior-ba: approve, 2 warnings applied (FR-021 source→CAP-16, Match entity +result fields). Status revisions→in-review
-  - 2026-06-07 | /review | round 1 by 6 agents: 1 blocking applied (FR-021), 7 warnings applied. Status draft→revisions
-  - 2026-06-04 | /srs | [states] initial 3 entity state machines: Match, Slot, Invite
-  - 2026-06-04 | /srs | [flows] initial 3 sequence flows: Registration, Matching+Booking, Rating
-  - 2026-06-04 | /srs | [erd] initial 12 entities, 14 relationships
-  - 2026-06-04 | /srs | initial spec: 20 FR, 7 NFR, 12 BR, 9 errors, 6 UCs, 12 screens
+  - '2026-06-26 | /gap | fix G4: thêm E-031 "Đội đối phương không phản hồi" vào Error Matrix (FR-049 error path)'
+  - '2026-06-25 | /review | fix BLOCKING: Mục 1 Boundary align P2 scope; fix W5: FR-050 ambiguous; fix W6: FR-052 edge case hủy giải; fix S3: FR-055 note algorithm TBD'
+  - '2026-06-25 | /srs | thêm FR-048→059 P2 (ghép đội, giải đấu, social feed, khuyến mãi), E-026→030'
+  - '2026-06-23 | /review | fix 5 BLOCKING + 6 WARNING: gap hoàn tiền 12-24h, NFR payment/chat/GPS/auth, OQ-1+OQ-2 resolved, FR-024 align BR-011, FR-040 edge cases, FR-033 moderation, sync sections 6/7/8, auth matrix BR-025/026, errors E-020→023'
+  - '2026-06-23 | /srs | thêm FR-033→047 (chat, noti, profile, wallet, admin, onboarding), E-015→019'
+  - '2026-06-23 | /srs | thêm FR-022→032 (tìm đặt sân), E-010→014, BR-014→024 từ brainstorm venue-search-booking'
+  - '2026-06-07 | /review | round 2 by @senior-ba: approve, 2 warnings applied (FR-021 source→CAP-16, Match entity +result fields). Status revisions→in-review'
+  - '2026-06-07 | /review | round 1 by 6 agents: 1 blocking applied (FR-021), 7 warnings applied. Status draft→revisions'
+  - '2026-06-04 | /srs | [states] initial 3 entity state machines: Match, Slot, Invite'
+  - '2026-06-04 | /srs | [flows] initial 3 sequence flows: Registration, Matching+Booking, Rating'
+  - '2026-06-04 | /srs | [erd] initial 12 entities, 14 relationships'
+  - '2026-06-04 | /srs | initial spec: 20 FR, 7 NFR, 12 BR, 9 errors, 6 UCs, 12 screens'
 ---
 
 # Sport Matching — Software Requirements Specification

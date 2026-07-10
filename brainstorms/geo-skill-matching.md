@@ -17,7 +17,7 @@ links:
 tags: [brainstorm, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-04 | /brainstorm | resolved OQ-1,OQ-2,OQ-3: Matching Score formula, thang 3 bậc ELO, limits hủy/cooldown
+  - '2026-06-04 | /brainstorm | resolved OQ-1,OQ-2,OQ-3: Matching Score formula, thang 3 bậc ELO, limits hủy/cooldown'
   - 2026-06-04 | /brainstorm | initial brainstorm, deep mode, 3 OQs flagged
 ---
 

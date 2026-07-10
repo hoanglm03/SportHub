@@ -15,10 +15,10 @@ links:
 tags: [urd, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-25 | /review | fix BLOCKING: Mục 8 Out of Scope align với P1/P2 roadmap (chat CAP-22, social CAP-29, giải đấu CAP-27/28)
+  - '2026-06-25 | /review | fix BLOCKING: Mục 8 Out of Scope align với P1/P2 roadmap (chat CAP-22, social CAP-29, giải đấu CAP-27/28)'
   - 2026-06-23 | /urd | thêm user needs #8-#11 (tìm đặt sân), Partner needs #4-#6, Journey 4+5 từ brainstorm venue-search-booking
   - 2026-06-23 | /gap | status draft→in-review, added forward links BRD/PRD/SRS
-  - 2026-06-04 | /urd | resolved OQ-1,OQ-2,OQ-3: peak hours, shared app, stats win/loss
+  - '2026-06-04 | /urd | resolved OQ-1,OQ-2,OQ-3: peak hours, shared app, stats win/loss'
   - 2026-06-04 | /urd | initial URD draft từ brainstorm geo-skill-matching
 ---
 

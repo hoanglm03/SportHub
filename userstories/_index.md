@@ -13,10 +13,10 @@ tags: [userstory-index]
 stale_reason: ""
 changelog:
   - 2026-06-26 | /gap | fix US-010 screen ref → venue-register, venue-manage; resolve OQ-1
-  - 2026-06-25 | /review | fix W3: US-035 note 3-persona; fix W4: US-037 note scope rộng; fix S1: US-009 persona note; fix S2: US-014/015 screens TBD
+  - '2026-06-25 | /review | fix W3: US-035 note 3-persona; fix W4: US-037 note scope rộng; fix S1: US-009 persona note; fix S2: US-014/015 screens TBD'
   - 2026-06-25 | /userstory | [us-034→037] 4 P2 stories (ghép đội, giải đấu, social feed, voucher+referral) + AC inline
-  - 2026-06-23 | /review | fix UC/US round 2: US-020 AC renumber, US-018/024 exact error msg, US-021 +E-024/025+BR-018, US-016 AC split, US-022/029 boundary ACs, US-018/030 auth AC (BR-025)
-  - 2026-06-23 | /review | fix review findings: split US-030→030+032+033, added AC-008 concurrent lock US-004, AC-007 US-017, AC-005 US-019/US-006, fix error refs US-018, US-016 deadline 24h
+  - '2026-06-23 | /review | fix UC/US round 2: US-020 AC renumber, US-018/024 exact error msg, US-021 +E-024/025+BR-018, US-016 AC split, US-022/029 boundary ACs, US-018/030 auth AC (BR-025)'
+  - '2026-06-23 | /review | fix review findings: split US-030→030+032+033, added AC-008 concurrent lock US-004, AC-007 US-017, AC-005 US-019/US-006, fix error refs US-018, US-016 deadline 24h'
   - 2026-06-23 | /userstory | [us-025→031] 7 P1 stories (chat, noti, profile, privacy, wallet, admin, onboarding) + AC inline
   - 2026-06-23 | /userstory | [us-017→024] 8 venue-booking stories + AC inline
   - 2026-06-07 | /ac | [us-016] generated 5 ACs (3 happy, 1 error, 1 ui-state)

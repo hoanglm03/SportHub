@@ -14,12 +14,12 @@ links:
 tags: [brd, sport-matching]
 stale_reason: ""
 changelog:
-  - 2026-06-26 | /gap | fix G1: thêm Mục 4.3 mapping CAP-22→30 vào BO-01→05; fix G7: brainstorm links đã có (false alarm)
-  - 2026-06-25 | /review | fix W2: Mục 5.2 Out of Scope align P1/P2 roadmap (chat/social/giải đấu)
+  - '2026-06-26 | /gap | fix G1: thêm Mục 4.3 mapping CAP-22→30 vào BO-01→05; fix G7: brainstorm links đã có (false alarm)'
+  - '2026-06-25 | /review | fix W2: Mục 5.2 Out of Scope align P1/P2 roadmap (chat/social/giải đấu)'
   - 2026-06-23 | /brd | thêm BO-05 (booking conversion), scope đặt sân độc lập + đánh giá sân + đăng sân, metrics mới
   - 2026-06-23 | /gap | status draft→in-review, added forward links PRD/SRS
-  - 2026-06-04 | /prd | cascade từ PRD OQ-1: commission chốt 12% cố định (trước đó 10-15%)
-  - 2026-06-04 | /brd | resolved OQ-1,OQ-2,OQ-3,OQ-4: commission 12%, premium 49k, ma trận hoàn tiền, cost categories
+  - '2026-06-04 | /prd | cascade từ PRD OQ-1: commission chốt 12% cố định (trước đó 10-15%)'
+  - '2026-06-04 | /brd | resolved OQ-1,OQ-2,OQ-3,OQ-4: commission 12%, premium 49k, ma trận hoàn tiền, cost categories'
   - 2026-06-04 | /brd | initial BRD draft từ URD + brainstorm geo-skill-matching
 ---
 
